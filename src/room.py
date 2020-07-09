@@ -3,15 +3,16 @@
 from textwrap import TextWrapper
 textwrap = TextWrapper()
 class Room:
-    def __init__(self, name, description, exits):
+    def __init__(self, name, description, exits, items):
         self.name = name
         self.description = description
         self.exits = exits
+        self.items = items
 
     def exit_to(direction):
         return True if direction in self.exits else False
 
     def __str__(self):
         return f"""{self.name}
-        {textwrap.fill(self.description)}
-        There are exits to the {", ".join(self.exits.keys()).upper()}."""
+{textwrap.fill(self.description)}
+There are exits to the {", ".join(self.exits.keys()).upper()}."""
